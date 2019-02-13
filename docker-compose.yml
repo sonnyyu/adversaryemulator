@@ -4,8 +4,8 @@ services:
    db:
      image: mysql:5.7
      volumes:
-       - /home/sonnyyu/docker/db_data:/var/lib/mysql
-       - /home/sonnyyu/docker/db_log:/var/log/mysql
+       - ~/dockers/data/db_data:/var/lib/mysql
+       - ~/dockers/data/db_log:/var/log/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: somewordpress
