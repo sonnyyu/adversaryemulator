@@ -1,18 +1,20 @@
-version: '3.7'
+version: '3.3'
 
 services:
    db:
      image: mysql:5.7
      volumes:
-       - ~/dockers/data/db_data:/var/lib/mysql
-       - ~/dockers/data/db_log:/var/log/mysql
+       - db_data:/var/lib/mysql
+       - db_log:/var/log/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_ROOT_PASSWORD: password
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
      ports:
        - "3306:3306"
      command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log --log_error=/var/log/mysql/error.log
-
+volumes:
+    db_data: {}
+    db_log: {}
