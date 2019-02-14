@@ -2,11 +2,13 @@ version: '3.3'
 
 services:
    alpine-nmap:
+     depends_on:
+       - db
      image: alpine-nmap
      build:
        context: .
        dockerfile: alpine-nmap/Dockerfile
-     command: sleep 3
+     command: sleep 20 && nmap  --script=mysql-brute.nse 10.145.88.192
    db:
      image: mysql:5.7
      volumes:
