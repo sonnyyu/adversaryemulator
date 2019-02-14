@@ -1,6 +1,12 @@
 version: '3.3'
 
 services:
+   alpine-nmap:
+     image: alpine-nmap
+     build:
+       context: .
+       dockerfile: alpine-nmap/Dockerfile
+     command: sleep 3
    db:
      image: mysql:5.7
      volumes:
